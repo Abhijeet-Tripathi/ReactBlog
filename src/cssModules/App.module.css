@@ -1,0 +1,27 @@
+.heading{
+    color:#fff;
+  }
+  
+  .container{
+    position: absolute;
+    left:20%;
+    top:10%;
+    border-radius:10px;
+    height:300px;
+    width: 700px;
+    background-color: rgb(185, 122, 39);
+    /* justify-content: center; */
+    text-align: center;
+  }
+  
+  .inp{
+    padding: 7px;
+    border-radius: 5px;
+    
+  }
+
+  .headinp{
+    position: absolute;
+    top:50%;
+    left: 40%;
+  }

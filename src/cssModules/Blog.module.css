@@ -1,0 +1,40 @@
+.heading{
+    color:#fff;
+  }
+  
+  .container{
+    position: absolute;
+    left:20%;
+    top:2%;
+    border-radius:10px;
+    height:450px;
+    width: 70%;
+    background-color: rgb(190, 128, 47);
+    /* justify-content: center; */
+    text-align: center;
+  }
+  
+  .inp{
+    padding: 7px;
+    border-radius: 5px;
+    width:80%;
+    font-size: 1.25rem;
+  }
+
+  .btn{
+    position: absolute;
+    top:85%;
+    left: 45%;
+    padding:12px;
+    font-size:1.25rem;
+    font-weight: 600;
+    background-color: rgb(171, 171, 218);
+  }
+
+  .headinp{
+    position: absolute;
+    top:62%;
+    left: 50%;
+    font-size: 2rem;
+    color: rgb(43, 43, 230);
+  }
