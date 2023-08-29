@@ -1,13 +1,24 @@
+*{
+  padding:0;
+  margin:0;
+}
+
 .heading{
     color:#fff;
+    text-align: center;
+  }
+  .coreContainer{
+    background-color: rgb(114, 94, 68);
+    width: 100vw;
+    height:55vh;
   }
   
   .container{
-    position: absolute;
-    left:20%;
-    top:2%;
+    position: relative;
+    left:15%;
+    top:5%;
     border-radius:10px;
-    height:450px;
+    height:350px;
     width: 70%;
     background-color: rgb(190, 128, 47);
     /* justify-content: center; */
@@ -23,7 +34,7 @@
 
   .btn{
     position: absolute;
-    top:85%;
+    top:80%;
     left: 45%;
     padding:12px;
     font-size:1.25rem;
@@ -32,9 +43,30 @@
   }
 
   .headinp{
-    position: absolute;
-    top:62%;
-    left: 50%;
+    text-align: center;
     font-size: 2rem;
-    color: rgb(43, 43, 230);
+    color: rgb(51, 51, 118);
+  }
+
+  .slide{
+    margin-top:25px;
+    margin-left: 340px;
+    width: 60vw;
+    background-color: rgb(206, 234, 225);
+    min-height: 100px; /* Set a minimum height */
+    border: 1px solid #ccc;
+    box-shadow: inset;
+    padding: 10px;
+    overflow: auto;
+  }
+
+  .slideTitle{
+    text-align: center;
+    margin-bottom: 5px;
+    text-decoration: underline;
+  }
+  .slideContent{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-decoration: solid;
+    
   }
