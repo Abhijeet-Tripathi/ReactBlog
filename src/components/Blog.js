@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useRef,useEffect } from "react";
 import style from "../cssModules/Blog.module.css";
 
 
@@ -7,11 +7,26 @@ function Blog() {
   // const [title, setTitle] = useState("");
   // const [content, setContent] = useState("");
   const[blogs,setBlogs]=useState([]);
+  const titleRef=useRef(null);
+
+  useEffect(()=>{
+  titleRef.current.focus();
+  },[]);
+
+  useEffect(()=>{
+    if(blogs.length && blogs[0].title)
+    {document.title=blogs[0].title;}
+    else{
+      document.title="No Blogs!!";
+    }
+  },[blogs]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setBlogs([{title:form.title,content:form.content},...blogs]);
     setForm({title:"",content:""});
+    titleRef.current.focus();
+   
     // setTitle("");
     // setContent("");
     console.log(blogs);
@@ -32,6 +47,7 @@ function Blog() {
                   placeholder="Enter Title ..."
                   type="text"
                   value={form.title}
+                  ref={titleRef}
                   onChange={(e) => setForm({...form,title:e.target.value})}
                 ></input>
                 <hr />
@@ -41,6 +57,7 @@ function Blog() {
                   placeholder="Enter Content Here ..."
                   rows="5"
                   cols="70"
+                  required
                   value={form.content}
                   name="description"
               onChange={(e) => setForm({...form,content:e.target.value})}
