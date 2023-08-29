@@ -15,8 +15,10 @@ function Blog() {
     // setTitle("");
     // setContent("");
     console.log(blogs);
-    
   };
+  const handleDelete=(i)=>{
+    setBlogs(blogs.filter((blog,index)=>i!==index));
+  }
   return (
     <>
     <div className={style.coreContainer}>
@@ -58,9 +60,14 @@ function Blog() {
 
       {blogs.map((blog,i)=>(
         <div className={style.slide} key={i}>
-           <h1 className={style.slideTitle}>{blog.title}</h1>
-       
+          <h1 className={style.slideTitle}>{blog.title}</h1>
           <h3 className={style.slideContent}>{blog.content}</h3>
+            <div>
+              <button 
+              className={style.remove}
+              onClick={()=>{handleDelete(i)}}
+              >Delete</button>
+            </div>
           </div>
       ))}
 

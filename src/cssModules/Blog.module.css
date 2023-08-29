@@ -49,8 +49,9 @@
   }
 
   .slide{
+    position:relative;
     margin-top:25px;
-    margin-left: 340px;
+    left: 19%;
     width: 60vw;
     background-color: rgb(206, 234, 225);
     min-height: 100px; /* Set a minimum height */
@@ -69,4 +70,14 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-decoration: solid;
     
+  }
+
+  .remove{
+    position: absolute;
+    font-size: 1.15rem;
+    padding: 8px;
+    right:5px;
+    bottom:5px;
+    color:white;
+    background-color: rgb(175, 26, 26);
   }
