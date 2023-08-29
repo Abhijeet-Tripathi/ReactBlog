@@ -3,13 +3,17 @@ import style from "../cssModules/Blog.module.css";
 
 
 function Blog() {
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
+  const[form,setForm]=useState({title:"",content:""});
+  // const [title, setTitle] = useState("");
+  // const [content, setContent] = useState("");
   const[blogs,setBlogs]=useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setBlogs([{title,content},...blogs]);
+    setBlogs([{title:form.title,content:form.content},...blogs]);
+    setForm({title:"",content:""});
+    // setTitle("");
+    // setContent("");
     console.log(blogs);
     
   };
@@ -25,8 +29,8 @@ function Blog() {
                   className={style.inp}
                   placeholder="Enter Title ..."
                   type="text"
-                  value={title}
-                  onChange={(e) => setTitle(e.target.value)}
+                  value={form.title}
+                  onChange={(e) => setForm({...form,title:e.target.value})}
                 ></input>
                 <hr />
                 <h1 className={style.heading}>Blog Content</h1>
@@ -35,9 +39,9 @@ function Blog() {
                   placeholder="Enter Content Here ..."
                   rows="5"
                   cols="70"
-                  value={content}
+                  value={form.content}
                   name="description"
-                  onChange={(e) => setContent(e.target.value)}
+              onChange={(e) => setForm({...form,content:e.target.value})}
                 ></textarea>
                 <hr />
                 <button type="submit" className={style.btn}>
