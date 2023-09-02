@@ -1,12 +1,24 @@
-import React, { useState,useRef,useEffect } from "react";
+import React, { useState,useRef,useEffect,useReducer } from "react";
 import style from "../cssModules/Blog.module.css";
+
+function blogsReducer(state,action){
+  switch(action.type){
+    case "ADD":
+      return [action.blog, ...state];
+    case "REMOVE":
+      return state.filter((blog,index)=>index!==action.index);
+    default:
+      return [];
+  }
+}
 
 
 function Blog() {
   const[form,setForm]=useState({title:"",content:""});
   // const [title, setTitle] = useState("");
   // const [content, setContent] = useState("");
-  const[blogs,setBlogs]=useState([]);
+  // const[blogs,setBlogs]=useState([]);
+  const[blogs, dispatch]=useReducer(blogsReducer,[]);
   const titleRef=useRef(null);
 
   useEffect(()=>{
@@ -23,17 +35,21 @@ function Blog() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setBlogs([{title:form.title,content:form.content},...blogs]);
+    // setBlogs([{title:form.title,content:form.content},...blogs]);
+    dispatch({type:"ADD",blog:{title:form.title,content:form.content}});
     setForm({title:"",content:""});
     titleRef.current.focus();
    
     // setTitle("");
     // setContent("");
-    console.log(blogs);
+    // console.log(blogs);
   };
   const handleDelete=(i)=>{
-    setBlogs(blogs.filter((blog,index)=>i!==index));
+    // setBlogs(blogs.filter((blog,index)=>i!==index));
+    dispatch({type:"REMOVE", index:i});
+
   }
+  console.log("formData",form);
   return (
     <>
     <div className={style.coreContainer}>
@@ -48,7 +64,9 @@ function Blog() {
                   type="text"
                   value={form.title}
                   ref={titleRef}
-                  onChange={(e) => setForm({...form,title:e.target.value})}
+                  
+                  onChange={(e) =>{ setForm({...form,title:e.target.value})
+                  console.log(e.target.value);}} 
                 ></input>
                 <hr />
                 <h1 className={style.heading}>Blog Content</h1>
@@ -60,7 +78,8 @@ function Blog() {
                   required
                   value={form.content}
                   name="description"
-              onChange={(e) => setForm({...form,content:e.target.value})}
+              onChange={(e) => {setForm({...form,content:e.target.value})
+              console.log(e.target.value);}}
                 ></textarea>
                 <hr />
                 <button type="submit" className={style.btn}>
